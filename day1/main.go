@@ -8,13 +8,10 @@ import (
 	"github.com/axhav/aoc2024/utils"
 )
 
-//go:embed ../utils.go
-
-
 func star2() {
 	sum := 0
 	var aList,bList []int
-	for _,line := range strings.Split(ReadInput(), "\n") {
+	for _,line := range strings.Split(utils.ReadInput(), "\n") {
 		if line == "" {
 			continue
 		}
@@ -31,7 +28,7 @@ func star2() {
 		bList = append(bList,b)
 	}
 	for _,v := range aList {
-		c := Count(bList,v)
+		c := utils.Count(bList,v)
 		sum += c * v
 	}
 	fmt.Println(sum)
@@ -40,7 +37,7 @@ func star2() {
 func star1() {
 	sum := 0
 	var aList,bList []int
-	for _,line := range strings.Split(ReadInput(), "\n") {
+	for _,line := range strings.Split(utils.ReadInput(), "\n") {
 		if line == "" {
 			continue
 		}
@@ -59,7 +56,7 @@ func star1() {
 	sort.Ints(aList)
 	sort.Ints(bList)
 	for i := range aList {
-		sum += Abs(aList[i] - bList[i])
+		sum += utils.Abs(aList[i] - bList[i])
 	}
 	fmt.Println(sum)
 }
